@@ -3,7 +3,7 @@ var jsData;
 function init(){
     var selector = d3.select("#selDataset");
 
-    d3.json("../../data/samples.json").then((data) =>{
+    d3.json("./static/data/samples.json").then((data) =>{
         jsData = data;
           var subjectID = data.names;
           subjectID.forEach((ID) => {
@@ -14,13 +14,13 @@ function init(){
           });
     const firstbutton = subjectID[0];
     updateCharts(firstbutton);
-    updateMetadata(dirstbutton);   
+    updateMetadata(firstbutton);   
     });
 }
   function updateCharts(sample) {
       d3.json("../data/samples.json").then((data) => {
         var samples = data.samples;
-        var flterArray = samples.filter(sampleObject => sampleObject.id == sample);
+        var filterArray = samples.filter(sampleObject => sampleObject.id == sample);
         var result = filterArray[0];
         var sample_values = result.samplevalues;
         var otu_ids = result.otu_ids;
