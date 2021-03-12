@@ -1,5 +1,9 @@
 var jsData;
 
+d3.json("../data/samples.json").then((data) => {
+    console.log(data)
+})
+
 function init(){
     var selector = d3.select("#selDataset");
 
